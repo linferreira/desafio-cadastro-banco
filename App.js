@@ -6,13 +6,14 @@ import Slider from '@react-native-community/slider';
 export default function App() {
   const [name, setName] = useState('')
   const [age, setAge] = useState('')
-  const [gender, setGender] = useState(1)
+  const [gender, setGender] = useState(0)
   const [limit, setLimit] = useState(500)
   const [isEnabled, setIsEnabled] = useState(false);
 
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
   const genders = [
+    { key: 0, label: '' },
     { key: 1, label: 'Feminino' },
     { key: 1, label: 'Masculino' },
     { key: 1, label: 'Outros' }
@@ -61,7 +62,7 @@ export default function App() {
           value={age}
         />
 
-        <Text style={styles.label}>Sexo}</Text>
+        <Text style={styles.label}>Sexo</Text>
         <View style={{ borderBottomWidth: 1, borderBottomColor: '#b1aeba', marginBottom: 30 }}>
           <Picker
             selectedValue={gender}
@@ -148,6 +149,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#b1aeba',
     padding: 10,
     marginBottom: 30,
+    height: 40,
     color: "#2a1244"
   },
   limitText: {
